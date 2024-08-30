@@ -1,0 +1,26 @@
+// Base animation
+@keyframes square-animation {
+  0% {
+    transform: scale(1);
+    // background-color: #fff;
+  }
+  100% {
+    transform: scale(1.2); // Small scale up
+    background-color: $accentColor; // New background color
+  }
+}
+
+// Mixin to generate animation with randomized delay
+@mixin animate-square($row, $col) {
+  $random-delay: random(10) * 0.1s; // Random delay between 0s to 1s
+  animation: square-animation 0.5s ease-in-out $random-delay  alternate;
+}
+
+// Loop through row and column to generate IDs with randomized delay
+@for $i from 0 through 16 {
+  @for $j from 0 through 16 {
+    #square-#{$i}-#{$j} {
+      @include animate-square($i, $j);
+    }
+  }
+}
