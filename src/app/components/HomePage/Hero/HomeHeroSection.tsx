@@ -48,11 +48,13 @@ export const HomeHeroSection = () => {
   const [isActive, setIsActive] = useState(false);
   const gridRows = 5;
   const gridDivs = new Array(12).fill("");
+
   useEffect(() => {
     setTimeout(() => {
       setIsActive(true);
     }, 1150);
   }, []);
+  
   return (
     <section className="container" style={{ perspective: "1000px" }}>
       <div
